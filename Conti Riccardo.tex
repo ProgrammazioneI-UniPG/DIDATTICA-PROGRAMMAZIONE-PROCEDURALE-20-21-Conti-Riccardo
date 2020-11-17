@@ -147,7 +147,7 @@ Scrivere una funzione di inserimento in coda ad una lista in maniera \underline{
 Data la seguente struttura, definire una funzione di nome \emph{positivi} che rimuove gli elementi il cui campo \emph{val} ha valore \underline{minore di 0}.
 
 \begin{minipage}{0.4\linewidth}
-	\begin{lstlisting}[language=C]
+\begin{lstlisting}[language=C]
 	struct Lista {
 		int val;
 		struct Lista* pNext;
@@ -192,15 +192,15 @@ Indicare quali tra i seguenti sono l-value, dati \emph{int s[3]; int *x = s, *y 
 Scrivere cosa stampa la seguente porzione di codice sapendo che $y$ si trova all'indirizzo 0xf0ff010.
 
 \begin{minipage}[t]{0.5\linewidth}
-	\begin{lstlisting}[language=C]
-		int x= 0xae, a = 12, *y= &x;
-		for (int i= 0; i<x ; i++) {
-			x = x/2 - (--a);
-			printf("%d %d\n", x, --a);
-			if (2*a>x) break;
-		}
-		printf("%d %p\n", x, ((long*) y) + a);
-	\end{lstlisting}
+\begin{lstlisting}[language=C]
+	int x= 0xae, a = 12, *y= &x;
+	for (int i= 0; i<x ; i++) {
+		x = x/2 - (--a);
+		printf("%d %d\n", x, --a);
+		if (2*a>x) break;
+	}
+	printf("%d %p\n", x, ((long*) y) + a);
+\end{lstlisting}
 \end{minipage}
 \begin{minipage}[t]{0.5\linewidth}
 	\makeemptybox{100pt}
