@@ -14,22 +14,22 @@
 \definecolor{backcolour}{rgb}{1,1,1}
 
 \lstdefinestyle{mystyle}{
-	backgroundcolor=\color{backcolour},   
-	commentstyle=\color{codegreen},
-	keywordstyle=\color{black},
-	numberstyle=\tiny\color{codegray},
-	stringstyle=\color{codepurple},
-	basicstyle=\footnotesize,
-	breakatwhitespace=false,         
-	breaklines=true,                 
-	captionpos=b,                    
-	keepspaces=true,                 
-	numbers=left,                    
-	numbersep=5pt,                  
-	showspaces=false,                
-	showstringspaces=false,
-	showtabs=false,                  
-	tabsize=2
+backgroundcolor=\color{backcolour},   
+commentstyle=\color{codegreen},
+keywordstyle=\color{black},
+numberstyle=\tiny\color{codegray},
+stringstyle=\color{codepurple},
+basicstyle=\footnotesize,
+breakatwhitespace=false,         
+breaklines=true,                 
+captionpos=b,                    
+keepspaces=true,                 
+numbers=left,                    
+numbersep=5pt,                  
+showspaces=false,                
+showstringspaces=false,
+showtabs=false,                  
+tabsize=2
 }
 
 \lstset{style=mystyle}
@@ -37,188 +37,183 @@
 \pagestyle{empty}
 
 \begin{document}
-	\boxedpoints
-	\pointname{~punti}
-	\begin{center}
-		\fbox{\fbox{\parbox{5.5in}{\centering
-					Prova scritta Programmazione Procedurale}}}
-	\end{center}
-	
-	\vspace{5mm}
-	
-	\noindent\makebox[\textwidth]{Nome e Cognome: \rule{8cm}{.1pt} \hspace{1cm} Matricola:  \rule{5cm}{.1pt}}
-	
-	%\vspace{5mm}
-	%\makebox[\textwidth]{Matricola:\enspace\hrulefill}
-	
-	
-	\begin{questions} 
-		
-		\question[1]
-		Riportare le conversioni di tipo \underline{implicite} e scrivere quanto valgono alla fine le variabili $a$, $b$, $c$.
-		
-		\begin{minipage}[t]{0.5\linewidth}
-			\begin{lstlisting}[language=C]
-				char a= (char) 2, b= (char) 3, c= (char) 4;
-				a= 2 * a * b / c;
-				if ( a < b ) 
-				b = c;
-			\end{lstlisting}
-		\end{minipage}
-		\begin{minipage}[t]{0.5\linewidth}
-			\makeemptybox{50pt}
-		\end{minipage}
-		
-		
-		
-		\question[2]
-		Riportare le conversioni di tipo \underline{implicite} e scrivere quanto valgono alla fine le variabili $a$, $b$, $c$.
-		
-		\begin{minipage}[t]{0.5\linewidth}
-			\begin{lstlisting}[language=C]
-				unsigned int a = 5U;
-				char b = (char) 2;
-				float c = 2.0;
-				c = (float) a / b;
-				b = a / b;
-				a = c - b;
-			\end{lstlisting}
-		\end{minipage}
-		\begin{minipage}[t]{0.5\linewidth}
-			\makeemptybox{70pt}
-		\end{minipage}
-		
-		
-		
-		\question[3]
-		Riportare le conversioni di tipo \underline{implicite} e scrivere quanto valgono alla fine le variabili $a$, $b$, $c$.
-		
-		\begin{minipage}[t]{0.5\linewidth}
-			\begin{lstlisting}[language=C]
-				float a = 2.5;
-				long b = 2L;
-				int c = 2U;
-				char d = (char) 2.5;
-				char *p = &d;
-				void *v = p;
-				if ( c < (int) a )
-				b = b*a;
-				else
-				b = a * d / c;
-				a = c * d;
-				c = b / a;
-				d = a + b + c + d;
-				
-			\end{lstlisting}
-		\end{minipage}
-		\begin{minipage}[t]{0.5\linewidth}
-			\makeemptybox{145pt}
-		\end{minipage}
-		
-		
-		
-		\question[1]
-		Si fornisca un esempio di effetto collaterale in C, evidenziando i \emph{sequence points} e spiegando perché genera o non genera un warning \emph{multiple unsequenced modifications}, fornendo un controesempio.
-		\makeemptybox{75pt}
-		
-		
-		
-		\question[2]
-		Si definisca una funzione \emph{centro} che ha come parametro un array di \emph{int} e ritorna la media tra il valore massimo e il valore minimo tra gli $n$ elementi presenti nell'array.
-		\makeemptybox{100pt}
-		
-		
-		
-		\question[2]
-		Scrivere una funzione che prenda in input una stringa di lunghezza massima 30 e la stampi invertita.
-		\makeemptybox{100pt}
-		
-		
-		
-		\question[1]
-		Scrivere una funzione di inserimento in in coda ad una lista in maniera \underline{iterativa}.
-		\makeemptybox{100pt}
-		
-		
-		
-		\question[2]
-		Scrivere una funzione di inserimento in coda ad una lista in maniera \underline{ricorsiva}.
-		\makeemptybox{100pt}
-		
-		
-		
-		\question[4]
-		Data la seguente struttura, definire una funzione di nome \emph{positivi} che rimuove gli elementi il cui campo \emph{val} ha valore \underline{minore di 0}.
-		
-		\begin{minipage}{0.3\linewidth}
-			\begin{lstlisting}[language=C]
-				struct Lista {
-					int val;
-					struct Lista* pNext;
-				}
-			\end{lstlisting}
-		\end{minipage}
-		\begin{minipage}{0.7\linewidth}
-			\makeemptybox{100pt}
-		\end{minipage}
-		
-		
-		
-		\question[1]
-		Indicare quali tra i seguenti sono l-value, dati \emph{int s[3]; int *x = s, *y = x + 3.}
-		
-		\begin{oneparcheckboxes}
-			\choice x + 3;
-			\choice *( y + 3 ) = 3;
-			\choice *x = y;
-			\choice \&y;
-			\choice a[3] - 3;
-			\choice y = \&x.
-		\end{oneparcheckboxes}
-		
-		
-		
-		\question [1]Si scriva un programma che permetta di scambiare il valori di due variabili x e y integrando l'utilizzo di puntatori.
-		\makeemptybox{100pt}
-		
-		
-		
-		\question[2] Si scriva una funzione \emph{matrmalloc}, in grado di allocare dinamicamente una matrice rettangolare di float, le cui dimensioni sono ricevute come parametri. Inizializzare la matrice azzerando tutte le celle.
-		\makeemptybox{100pt}
-		
-		
-		
-		\question[4] Si scriva una funzione \emph{matrptr} che riceva come parametri dimensioni e puntatore a una matrice rettangolare di float. Inizializzare la matrice azzerando tutte le celle. Spiegare le differenze con l'esercizio precedente evindenziando pro e contro.
-		\makeemptybox{125pt}
-		
-		
-		
-		\question[4]
-		Scrivere cosa stampa la seguente porzione di codice sapendo che $y$ si trova all'indirizzo 0xf0ff010.
-		
-		\begin{minipage}[t]{0.5\linewidth}
-			\begin{lstlisting}[language=C]
-				int x= 0xae, a = 12, *y= &x;
-				for (int i= 0; i<x ; i++) {
-					x = x/2 - (--a);
-					printf("%d %d\n", x, --a);
-					if (2*a>x) break;
-				}
-				printf("%d %p\n", x, ((long*) y) + a);
-			\end{lstlisting}
-		\end{minipage}
-		\begin{minipage}[t]{0.5\linewidth}
-			\makeemptybox{100pt}
-		\end{minipage}
-		
-		
-		
-		\question[4]
-		Dato \underline{\emph{int s[3]= $\{$511, -666, INT\_MAX)$\}$;}}\\
-		\underline{\emph{int  $^*$x = (int$^*$) s;
-				char $^*$y= (char$^*$) s;
-				x[1]= INT\_MIN - 3; y[2] = $\sim$y[2] - 64;}}  
-		sapendo che i due tipi occupano $4$ e $1$ byte, con valori rappresentati in \emph{little endian} e complemento a due, scrivere la mappa di memoria. L'operatore $\sim$ è la negazione bit a bit.
-	\end{questions}
-	
+\boxedpoints
+\pointname{~punti}
+\begin{center}
+\fbox{\fbox{\parbox{5.5in}{\centering
+			Prova scritta Programmazione Procedurale}}}
+\end{center}
+
+\vspace{5mm}
+
+\noindent\makebox[\textwidth]{Nome e Cognome: \rule{8cm}{.1pt} \hspace{1cm} Matricola:  \rule{5cm}{.1pt}}
+
+%\vspace{5mm}
+%\makebox[\textwidth]{Matricola:\enspace\hrulefill}
+
+
+\begin{questions} 
+
+\question[1]
+Riportare le conversioni di tipo \underline{implicite} e scrivere quanto valgono alla fine le variabili $a$, $b$, $c$.
+
+\begin{minipage}[t]{0.5\linewidth}
+	\begin{lstlisting}[language=C]
+	char a= (char) 2, b= (char) 3, c= (char) 4;
+	a= 2 * a * b / c;
+	if ( a < b ) 
+	b = c;\end{lstlisting}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+	\makeemptybox{50pt}
+\end{minipage}
+
+
+
+\question[2]
+Riportare le conversioni di tipo \underline{implicite} e scrivere quanto valgono alla fine le variabili $a$, $b$, $c$.
+
+\begin{minipage}[t]{0.5\linewidth}
+	\begin{lstlisting}[language=C]
+	unsigned int a = 5U;
+	char b = (char) 2;
+	float c = 2.0;
+	c = (float) a / b;
+	b = a / b;
+	a = c - b;\end{lstlisting}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+	\makeemptybox{70pt}
+\end{minipage}
+
+
+
+\question[3]
+Riportare le conversioni di tipo \underline{implicite} e scrivere quanto valgono alla fine le variabili $a$, $b$, $c$.
+
+\begin{minipage}[t]{0.5\linewidth}
+	\begin{lstlisting}[language=C]
+	float a = 2.5;
+	long b = 2L;
+	int c = 2U;
+	char d = (char) 2.5;
+	char *p = &d;
+	void *v = p;
+	if ( c < (int) a )
+	    b = b*a;
+	else
+	    b = a * d / c;
+	a = c * d;
+	c = b / a;
+	d = a + b + c + d;\end{lstlisting}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+	\makeemptybox{145pt}
+\end{minipage}
+
+
+
+\question[1]
+Si fornisca un esempio di effetto collaterale in C, evidenziando i \emph{sequence points} e spiegando perché genera o non genera un warning \emph{multiple unsequenced modifications}, fornendo un controesempio.
+\makeemptybox{75pt}
+
+
+
+\question[2]
+Si definisca una funzione \emph{centro} che ha come parametro un array di \emph{int} e ritorna la media tra il valore massimo e il valore minimo tra gli $n$ elementi presenti nell'array.
+\makeemptybox{100pt}
+
+
+
+\question[2]
+Scrivere una funzione che prenda in input una stringa di lunghezza massima 30 e la stampi invertita.
+\makeemptybox{100pt}
+
+
+
+\question[1]
+Scrivere una funzione di inserimento in in coda ad una lista in maniera \underline{iterativa}.
+\makeemptybox{100pt}
+
+
+
+\question[2]
+Scrivere una funzione di inserimento in coda ad una lista in maniera \underline{ricorsiva}.
+\makeemptybox{100pt}
+
+
+
+\question[4]
+Data la seguente struttura, definire una funzione di nome \emph{positivi} che rimuove gli elementi il cui campo \emph{val} ha valore \underline{minore di 0}.
+
+\begin{minipage}{0.4\linewidth}
+	\begin{lstlisting}[language=C]
+	struct Lista {
+		int val;
+		struct Lista* pNext;
+	}\end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.6\linewidth}
+	\makeemptybox{100pt}
+\end{minipage}
+
+
+
+\question[1]
+Indicare quali tra i seguenti sono l-value, dati \emph{int s[3]; int *x = s, *y = x + 3.}
+
+\begin{oneparcheckboxes}
+	\choice x + 3;
+	\choice *( y + 3 ) = 3;
+	\choice *x = y;
+	\choice \&y;
+	\choice a[3] - 3;
+	\choice y = \&x.
+\end{oneparcheckboxes}
+
+
+
+\question [1]Si scriva un programma che permetta di scambiare il valori di due variabili x e y integrando l'utilizzo di puntatori.
+\makeemptybox{100pt}
+
+
+
+\question[2] Si scriva una funzione \emph{matrmalloc}, in grado di allocare dinamicamente una matrice rettangolare di float, le cui dimensioni sono ricevute come parametri. Inizializzare la matrice azzerando tutte le celle.
+\makeemptybox{100pt}
+
+
+
+\question[4] Si scriva una funzione \emph{matrptr} che riceva come parametri dimensioni e puntatore a una matrice rettangolare di float. Inizializzare la matrice azzerando tutte le celle. Spiegare le differenze con l'esercizio precedente evindenziando pro e contro.
+\makeemptybox{125pt}
+
+
+
+\question[4]
+Scrivere cosa stampa la seguente porzione di codice sapendo che $y$ si trova all'indirizzo 0xf0ff010.
+
+\begin{minipage}[t]{0.5\linewidth}
+	\begin{lstlisting}[language=C]
+		int x= 0xae, a = 12, *y= &x;
+		for (int i= 0; i<x ; i++) {
+			x = x/2 - (--a);
+			printf("%d %d\n", x, --a);
+			if (2*a>x) break;
+		}
+		printf("%d %p\n", x, ((long*) y) + a);
+	\end{lstlisting}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+	\makeemptybox{100pt}
+\end{minipage}
+
+
+
+\question[4]
+Dato \underline{\emph{int s[3]= $\{$511, -666, INT\_MAX)$\}$;}}\\
+\underline{\emph{int  $^*$x = (int$^*$) s;
+		char $^*$y= (char$^*$) s;
+		x[1]= INT\_MIN - 3; y[2] = $\sim$y[2] - 64;}}  
+sapendo che i due tipi occupano $4$ e $1$ byte, con valori rappresentati in \emph{little endian} e complemento a due, scrivere la mappa di memoria. L'operatore $\sim$ è la negazione bit a bit.
+\end{questions}
+
 \end{document}
